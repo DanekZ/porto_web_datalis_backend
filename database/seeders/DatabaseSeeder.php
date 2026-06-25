@@ -165,5 +165,56 @@ class DatabaseSeeder extends Seeder
         foreach ($experiences as $data) {
             Experience::create($data);
         }
+
+        // ─── Achievements ─────────────────────────────────────────────────────────────
+        $achievements = [
+            [
+                'title'          => 'Web Development Bootcamp',
+                'issuer'         => 'Suvi Training',
+                'type'           => 'course',
+                'image'          => null,
+                'credential_url' => null,
+                'year'           => '2025',
+                'sort_order'     => 1,
+            ],
+            [
+                'title'          => 'Laravel Framework Certification',
+                'issuer'         => 'GreenNusa Computindo',
+                'type'           => 'certification',
+                'image'          => null,
+                'credential_url' => null,
+                'year'           => '2023',
+                'sort_order'     => 2,
+            ],
+        ];
+
+        foreach ($achievements as $data) {
+            \App\Models\Achievement::create($data);
+        }
+
+        // ─── Educations ───────────────────────────────────────────────────────────────
+        $educations = [
+            [
+                'institution' => 'Politeknik Negeri Samarinda',
+                'degree'      => 'Diploma (D3)',
+                'field'       => 'Informatics Engineering',
+                'start_year'  => '2021',
+                'end_year'    => '2024',
+                'location'    => 'Samarinda, East Kalimantan',
+                'gpa'         => '3.50',
+                'logo'        => null,
+                'sort_order'  => 1,
+            ],
+        ];
+
+        foreach ($educations as $data) {
+            \App\Models\Education::create($data);
+        }
+
+        // ─── Settings ─────────────────────────────────────────────────────────────────
+        \App\Models\Setting::set('resume_url', '');
+        \App\Models\Setting::set('site_name', 'Zidane Abbas Mallaniung');
+        \App\Models\Setting::set('site_email', 'zidaneabbasmallaniung@gmail.com');
+        \App\Models\Setting::set('site_location', 'Balikpapan, East Kalimantan');
     }
 }

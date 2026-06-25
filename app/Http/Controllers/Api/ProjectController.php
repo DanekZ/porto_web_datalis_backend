@@ -8,10 +8,6 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    /**
-     * GET /api/projects
-     * Query params: ?category=web|data&featured=true
-     */
     public function index(Request $request)
     {
         $query = Project::orderBy('sort_order')->orderBy('created_at', 'desc');
@@ -37,19 +33,45 @@ class ProjectController extends Controller
         ]);
     }
 
-    /**
-     * GET /api/projects/{id}
-     */
     public function show($id)
     {
         $project = Project::findOrFail($id);
-
-        return response()->json([
-            'data' => $this->format($project),
-        ]);
+        return response()->json(['data' => $this->format($project)]);
     }
 
-    /** Normalisasi field agar konsisten ke frontend */
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'title'       => 'required|string',
+            'description' => 'required|string',
+            'thumbnail'   => 'nullable|string',
+            'images'      => 'nullable|array|max:5',
+            'tech_stack'  => 'required|array',
+            'category'    => 'required|in:web,data',
+            'github_url'  => 'nullable|string',
+            'demo_url'    => 'nullable|string',
+            'status'      => 'in:completed,in-progress,archived',
+            'featured'    => 'boolean',
+            'sort_order'  => 'integer',
+        ]);
+
+        $project = Project::create($data);
+        return response()->json(['data' => $this->format($project)], 201);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $project = Project::findOrFail($id);
+        $project->update($request->all());
+        return response()->json(['data' => $this->format($project)]);
+    }
+
+    public function destroy($id)
+    {
+        Project::findOrFail($id)->delete();
+        return response()->json(['message' => 'Deleted.']);
+    }
+
     private function format(Project $p): array
     {
         return [
@@ -64,6 +86,7 @@ class ProjectController extends Controller
             'demo_url'    => $p->demo_url,
             'status'      => $p->status,
             'featured'    => $p->featured,
+            'sort_order'  => $p->sort_order,
             'created_at'  => $p->created_at,
         ];
     }
