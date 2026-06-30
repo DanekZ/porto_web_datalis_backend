@@ -18,17 +18,22 @@ class AchievementController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'title'          => 'required|string',
-            'issuer'         => 'required|string',
-            'type'           => 'required|in:award,course,certification',
-            'image'          => 'nullable|string',
-            'credential_url' => 'nullable|string',
-            'year'           => 'nullable|string',
-            'sort_order'     => 'integer',
+            'title'            => 'required|string',
+            'issuer'           => 'required|string',
+            'type'             => 'required|in:award,course,certification',
+            'level'            => 'nullable|string',
+            'image'            => 'nullable|string',
+            'image_path'       => 'nullable|string',
+            'credential_url'   => 'nullable|string',
+            'credential_id'    => 'nullable|string',
+            'issue_date'       => 'nullable|date',
+            'expiration_date'  => 'nullable|date',
+            'categories'       => 'nullable|array',
+            'year'             => 'nullable|string',
+            'sort_order'       => 'integer',
         ]);
 
         $achievement = Achievement::create($data);
-
         return response()->json(['data' => $achievement], 201);
     }
 
@@ -36,14 +41,12 @@ class AchievementController extends Controller
     {
         $achievement = Achievement::findOrFail($id);
         $achievement->update($request->all());
-
         return response()->json(['data' => $achievement]);
     }
 
     public function destroy($id)
     {
         Achievement::findOrFail($id)->delete();
-
         return response()->json(['message' => 'Deleted.']);
     }
 }
