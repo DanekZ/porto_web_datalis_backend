@@ -34,7 +34,7 @@ class ExperienceController extends Controller
             'title'       => 'required|string',
             'role'        => 'required|string',
             'description' => 'required|string',
-            'type'        => 'in:work,education,training',
+            'type'        => 'required|string',
             'start_date'  => 'nullable|string',
             'end_date'    => 'nullable|string',
             'sort_order'  => 'integer',
