@@ -19,7 +19,7 @@ class EducationController extends Controller
     {
         $data = $request->validate([
             'institution' => 'required|string',
-            'degree'      => 'required|string',
+            'degree'      => 'nullable|string',
             'field'       => 'required|string',
             'start_year'  => 'required|string',
             'end_year'    => 'nullable|string',
