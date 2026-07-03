@@ -16,9 +16,10 @@ class UploadController extends Controller
    {
       $request->validate([
          'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+         'folder' => 'nullable|string|in:projects,achievements,educations,experiences,general',
       ]);
 
-      $path = $request->file('image')->store('projects', 'public');
+      $path = $request->file('image')->store($request->folder ?? 'general', 'public');
 
       return response()->json([
          'path' => $path,
