@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Project;
+// use App\Models\Project;
 use App\Models\Skill;
 use App\Models\Experience;
 
@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::create([
             'name' => 'Zidane Abbas M',
             'email' => 'admin@zidane.com',
-            'password' => bcrypt('passwordkamu'),
+            'password' => bcrypt('123qasw123'),
         ]);
         // ─── Projects ────────────────────────────────────────────────────────
         // $projects =
@@ -104,73 +104,73 @@ class DatabaseSeeder extends Seeder
         // }
 
         // // ─── Skills ──────────────────────────────────────────────────────────
-        // $skills = [
-        //     // Web
-        //     ['name' => 'HTML/CSS/JavaScript', 'category' => 'web', 'proficiency' => 90, 'sort_order' => 1],
-        //     ['name' => 'React',               'category' => 'web', 'proficiency' => 80, 'sort_order' => 2],
-        //     ['name' => 'Node.js',             'category' => 'web', 'proficiency' => 75, 'sort_order' => 3],
-        //     ['name' => 'Laravel/PHP',         'category' => 'web', 'proficiency' => 80, 'sort_order' => 4],
-        //     ['name' => 'Database Management', 'category' => 'web', 'proficiency' => 70, 'sort_order' => 5],
-        //     ['name' => 'UI/UX Design',        'category' => 'web', 'proficiency' => 55, 'sort_order' => 6],
-        //     // Data
-        //     ['name' => 'Python/R',            'category' => 'data', 'proficiency' => 85, 'sort_order' => 1],
-        //     ['name' => 'Machine Learning',    'category' => 'data', 'proficiency' => 20, 'sort_order' => 2],
-        //     ['name' => 'Data Visualization',  'category' => 'data', 'proficiency' => 82, 'sort_order' => 3],
-        //     ['name' => 'Statistical Analysis', 'category' => 'data', 'proficiency' => 70, 'sort_order' => 4],
-        //     ['name' => 'Big Data Technologies', 'category' => 'data', 'proficiency' => 75, 'sort_order' => 5],
-        // ];
+        $skills = [
+            // Web
+            ['name' => 'HTML/CSS/JavaScript', 'category' => 'web', 'sort_order' => 1],
+            ['name' => 'React',               'category' => 'web', 'sort_order' => 2],
+            ['name' => 'Node.js',             'category' => 'web', 'sort_order' => 3],
+            ['name' => 'Laravel/PHP',         'category' => 'web', 'sort_order' => 4],
+            ['name' => 'Database Management', 'category' => 'web', 'sort_order' => 5],
+            ['name' => 'UI/UX Design',        'category' => 'web', 'sort_order' => 6],
+            // Data
+            ['name' => 'Python/R',            'category' => 'data', 'sort_order' => 1],
+            ['name' => 'Machine Learning',    'category' => 'data', 'sort_order' => 2],
+            ['name' => 'Data Visualization',  'category' => 'data', 'sort_order' => 3],
+            ['name' => 'Statistical Analysis', 'category' => 'data', 'sort_order' => 4],
+            ['name' => 'Big Data Technologies', 'category' => 'data', 'sort_order' => 5],
+        ];
 
-        // foreach ($skills as $data) {
-        //     Skill::create($data);
-        // }
+        foreach ($skills as $data) {
+            Skill::create($data);
+        }
 
         // // ─── Experiences ─────────────────────────────────────────────────────
-        // $experiences = [
-        //     [
-        //         'year'        => '2025',
-        //         'title'       => 'Suvi Training',
-        //         'role'        => 'Web Development NodeJS & React',
-        //         'description' => 'Participated in a web development training program focusing on modern JavaScript technologies to enhance full-stack development capabilities.',
-        //         'type'        => 'training',
-        //         'sort_order'  => 1,
-        //     ],
-        //     [
-        //         'year'        => '2025',
-        //         'title'       => 'Surya Raya Badminton',
-        //         'role'        => 'Administrative Staff',
-        //         'description' => 'Responsible for daily administrative operations, documentation, and financial record management. Assisted internal coordination and maintained effective communication.',
-        //         'type'        => 'work',
-        //         'sort_order'  => 2,
-        //     ],
-        //     [
-        //         'year'        => '2025',
-        //         'title'       => 'PT Tambang Raya Usaha Tama',
-        //         'role'        => 'Data Manager & Data Entry',
-        //         'description' => 'Managed and validated daily operational data using Microsoft Excel, ensuring data accuracy before transferring it to the main file. Strengthened analytical and organizational skills.',
-        //         'type'        => 'work',
-        //         'sort_order'  => 3,
-        //     ],
-        //     [
-        //         'year'        => '2024',
-        //         'title'       => 'Politeknik Negeri Samarinda',
-        //         'role'        => 'Final Project: Web Development',
-        //         'description' => 'Designed and implemented a web-based Point of Sales (POS) application using Laravel and UML methodology. Conducted blackbox testing to ensure reliability.',
-        //         'type'        => 'education',
-        //         'sort_order'  => 4,
-        //     ],
-        //     [
-        //         'year'        => '2023',
-        //         'title'       => 'GreenNusa Computindo',
-        //         'role'        => 'Web Development Intern',
-        //         'description' => 'Developed dynamic web pages using Laravel Framework while learning database management and responsive design fundamentals.',
-        //         'type'        => 'work',
-        //         'sort_order'  => 5,
-        //     ],
-        // ];
+        $experiences = [
+            [
+                'year'        => '2025',
+                'title'       => 'Suvi Training',
+                'role'        => 'Web Development NodeJS & React',
+                'description' => 'Participated in a web development training program focusing on modern JavaScript technologies to enhance full-stack development capabilities.',
+                'type'        => 'training',
+                'sort_order'  => 1,
+            ],
+            [
+                'year'        => '2025',
+                'title'       => 'Surya Raya Badminton',
+                'role'        => 'Administrative Staff',
+                'description' => 'Responsible for daily administrative operations, documentation, and financial record management. Assisted internal coordination and maintained effective communication.',
+                'type'        => 'work',
+                'sort_order'  => 2,
+            ],
+            [
+                'year'        => '2025',
+                'title'       => 'PT Tambang Raya Usaha Tama',
+                'role'        => 'Data Manager & Data Entry',
+                'description' => 'Managed and validated daily operational data using Microsoft Excel, ensuring data accuracy before transferring it to the main file. Strengthened analytical and organizational skills.',
+                'type'        => 'work',
+                'sort_order'  => 3,
+            ],
+            [
+                'year'        => '2024',
+                'title'       => 'Politeknik Negeri Samarinda',
+                'role'        => 'Final Project: Web Development',
+                'description' => 'Designed and implemented a web-based Point of Sales (POS) application using Laravel and UML methodology. Conducted blackbox testing to ensure reliability.',
+                'type'        => 'education',
+                'sort_order'  => 4,
+            ],
+            [
+                'year'        => '2023',
+                'title'       => 'GreenNusa Computindo',
+                'role'        => 'Web Development Intern',
+                'description' => 'Developed dynamic web pages using Laravel Framework while learning database management and responsive design fundamentals.',
+                'type'        => 'work',
+                'sort_order'  => 5,
+            ],
+        ];
 
-        // foreach ($experiences as $data) {
-        //     Experience::create($data);
-        // }
+        foreach ($experiences as $data) {
+            Experience::create($data);
+        }
 
         // // ─── Achievements ─────────────────────────────────────────────────────────────
         // $achievements = [
@@ -218,9 +218,9 @@ class DatabaseSeeder extends Seeder
         // }
 
         // ─── Settings ─────────────────────────────────────────────────────────────────
-        \App\Models\Setting::set('resume_url', '');
-        \App\Models\Setting::set('site_name', 'Zidane Abbas Mallaniung');
-        \App\Models\Setting::set('site_email', 'zidaneabbasmallaniung@gmail.com');
-        \App\Models\Setting::set('site_location', 'Balikpapan, East Kalimantan');
+        // \App\Models\Setting::set('resume_url', '');
+        // \App\Models\Setting::set('site_name', 'Zidane Abbas Mallaniung');
+        // \App\Models\Setting::set('site_email', 'zidaneabbasmallaniung@gmail.com');
+        // \App\Models\Setting::set('site_location', 'Balikpapan, East Kalimantan');
     }
 }
