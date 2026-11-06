@@ -11,7 +11,7 @@ class AchievementController extends Controller
     public function index()
     {
         return response()->json([
-            'data' => Achievement::orderBy('sort_order')->get(),
+            'data' => Achievement::latest()->get(),
         ]);
     }
 
